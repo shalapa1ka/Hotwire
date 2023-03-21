@@ -1,0 +1,3 @@
+<%= turbo_stream.replace Folder.new, partial: 'add_folder' %>
+<%= turbo_stream.after Folder.new, render(@folder) %>
+<%= prepend_flash %>

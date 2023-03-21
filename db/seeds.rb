@@ -6,9 +6,18 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+=begin
 5.times do
   Image.create(
     title: FFaker::Lorem.word,
     url: FFaker::Image.url
+  )
+end
+=end
+
+5.times do
+  Folder.create(
+    title: FFaker::Lorem.word,
+    description: FFaker::Lorem.sentence
   )
 end
