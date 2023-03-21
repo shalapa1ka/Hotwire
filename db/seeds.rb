@@ -15,9 +15,18 @@
 end
 =end
 
+=begin
 5.times do
   Folder.create(
     title: FFaker::Lorem.word,
     description: FFaker::Lorem.sentence
+  )
+end
+=end
+
+10.times do
+  Bookmark.create(
+    title: FFaker::Lorem.word,
+    folder_id: rand(1..5)
   )
 end
