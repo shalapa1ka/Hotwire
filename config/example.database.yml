@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username:
+  password:
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: HWire_development
+test:
+  <<: *default
+  database: HWire_test
+
+production:
+  <<: *default
+  database: HWire_production
+  username: HWire
+  password: <%= ENV["HWIRE_DATABASE_PASSWORD"] %>
