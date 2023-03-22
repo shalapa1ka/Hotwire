@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resources :bookmarks
   end
 
+  resources :notes
+
   root "images#index"
 end

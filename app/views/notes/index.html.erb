@@ -1,0 +1,7 @@
+<h1>Notes</h1>
+
+<%= render 'add_note' %>
+
+<%= tag.article id: 'notes', data: {controller: 'sortable'} do %>
+  <%= render @notes %>
+<% end %>

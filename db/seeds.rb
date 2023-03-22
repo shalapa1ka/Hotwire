@@ -24,9 +24,13 @@ end
 end
 =end
 
+=begin
 10.times do
   Bookmark.create(
     title: FFaker::Lorem.word,
     folder_id: rand(1..5)
   )
 end
+=end
+
+User.create name: 'fake'
