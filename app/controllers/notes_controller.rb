@@ -29,6 +29,13 @@ class NotesController < ApplicationController
     end
   end
 
+  def reorder
+    @note = current_user.notes.find_by position: params[:old_position]
+    @note.insert_at params[:new_position]
+
+    head :ok
+  end
+
   private
 
   def set_note

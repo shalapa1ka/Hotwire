@@ -1,6 +1,10 @@
-<%= turbo_frame_tag note do %>
+<%= turbo_frame_tag note, class: 'item' do %>
   <section class="mb-4">
-    <h2><%= note.title %></h2>
+
+    <h2>
+      <i class="bi bi-grip-vertical handler"></i>
+      <%= note.title %>
+    </h2>
 
     <p class="lead">
       <span class="badge bg-info" data-sortable-target="position">
