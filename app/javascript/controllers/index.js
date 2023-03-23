@@ -10,8 +10,8 @@ application.register("bookmarks", BookmarksController)
 import ImagesController from "./images_controller"
 application.register("images", ImagesController)
 
-import ToastController from "./toast_controller"
-application.register("toast", ToastController)
+import RemovalsController from "./removals_controller"
+application.register("removals", RemovalsController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
