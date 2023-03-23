@@ -5,7 +5,9 @@ class FoldersController < ApplicationController
   end
 
 
-  def show; end
+  def show
+    @bookmarks = @folder.bookmarks.order created_at: :desc
+  end
   def new
     @folder = Folder.new
   end

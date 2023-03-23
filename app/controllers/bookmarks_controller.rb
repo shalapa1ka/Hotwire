@@ -1,18 +1,19 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
-  before_action :set_folder, only: [:new, :create, :edit]
+  before_action :set_folder, only: [:new, :create]
     def show; end
 
   def new
-    @bookmark = @folder.bookmarks.new
+    @bookmark = @folder.bookmarks.build
   end
 
   def edit; end
 
   def create
-    @bookmark =  @folder.bookmarks.new(bookmark_params)
-    if @bookmark.save
-      flash.now[:success] = "Bookmark was successfully created."
+    success, @bookmark = Bookmarks::CreateService.call @folder, bookmark_params
+
+    if success
+      flash.now[:success] = 'Bookmark created!'
     else
       render :new
     end
@@ -20,11 +21,12 @@ class BookmarksController < ApplicationController
 
   def update
     if @bookmark.update bookmark_params
-      redirect_to folders_path
+      flash.now[:success] = "Bookmark was successfully updated."
     else
       render :edit
     end
   end
+
   def destroy
     @bookmark.destroy
     flash.now[:success] = "Bookmark was successfully destroyed."
@@ -32,9 +34,10 @@ class BookmarksController < ApplicationController
 
   private
 
-  def set_folder
-    @folder = Folder.find(params[:folder_id])
-  end
+    def set_folder
+      @folder = Folder.find(params[:folder_id])
+    end
+
     def set_bookmark
       @bookmark = Bookmark.find(params[:id])
     end

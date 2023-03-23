@@ -2,4 +2,12 @@
 
 <p><%= @folder.description %></p>
 
+<%= turbo_stream_from(@folder, :bookmarks) %>
+
+<%= turbo_frame_tag 'bookmarks', data: { controller: 'bookmarks', 'bookmarks-admin-value': current_user.admin? } do %>
+  <h4>Bookmarks</h4>
+  <%= render @bookmarks %>
+<% end %>
+<%= render 'bookmarks/add_bookmark' %>
+
 <%= link_to :Back, folders_path, class: 'btn btn-secondary' %>

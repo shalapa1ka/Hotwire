@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BookmarksController from "./bookmarks_controller"
+application.register("bookmarks", BookmarksController)
+
 import ImagesController from "./images_controller"
 application.register("images", ImagesController)
 
@@ -12,3 +15,6 @@ application.register("toast", ToastController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+
+import ToastController from "./toast_controller"
+application.register("toast", ToastController)

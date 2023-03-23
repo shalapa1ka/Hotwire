@@ -7,9 +7,5 @@
     <%= link_to :Edit, edit_folder_path(folder), class: 'btn btn-primary' %>
     <%= link_to :Delete, folder_path(folder), class: 'btn btn-danger',
     data: {turbo_method: :delete, turbo_confirm: 'Are u sure?'}%>
-
-    <div class="mt-3">
-      <%= render partial: 'bookmarks/bookmark', collection: folder.bookmarks, as: :bookmark, locals: { folder: folder } %>
-    </div>
   </section>
 <% end %>
