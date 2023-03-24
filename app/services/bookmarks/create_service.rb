@@ -20,7 +20,7 @@ module Bookmarks
     def post_call
       broadcast_later [@folder, :bookmarks],
                       'bookmarks/created',
-                      locals: { bookmark: @object }
+                      locals: { bookmark: @object, folder_id: @folder.id }
     end
   end
 end

@@ -6,12 +6,12 @@ class NotesController < ApplicationController
   end
 
   def new
-    @note = current_user.notes.build
-    @note.position = current_user.notes.count + 1
+    @note = Current.user.notes.build
+    @note.position = Current.user.notes.count + 1
   end
 
   def create
-    @note = current_user.notes.build note_params
+    @note = Current.user.notes.build note_params
     if @note.save
       flash.now[:success] = 'Note was successfully created.'
     else
@@ -30,7 +30,7 @@ class NotesController < ApplicationController
   end
 
   def reorder
-    @note = current_user.notes.find_by position: params[:old_position]
+    @note = Current.user.notes.find_by position: params[:old_position]
     @note.insert_at params[:new_position]
 
     head :ok

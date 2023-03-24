@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
-  before_action :set_folder, only: [:new, :create]
+  before_action :set_folder
     def show; end
 
   def new

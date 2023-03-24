@@ -1,6 +1,6 @@
-<%= turbo_frame_tag @bookmark do %>
-  <%= form_with model: [@bookmark.folder, @bookmark] do |f| %>
-    <%= render 'shared/errors', object: @bookmark %>
+<%= turbo_frame_tag bookmark do %>
+  <%= form_with model: [bookmark.folder, bookmark] do |f| %>
+    <%= render 'shared/errors', object: bookmark %>
     <div class="mb-3 row">
       <div class="col-sm-2 col-form-label">
         <%= f.label :title %>

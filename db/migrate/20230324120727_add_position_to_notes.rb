@@ -8,9 +8,8 @@ class AddPositionToNotes < ActiveRecord::Migration[7.0]
 
   def down
     execute <<~SQL.squish
-      alter table notes drop constraint unique_user_id_position;
+      alter table notes drop constraint unique_user_id_position
     SQL
-    remove_column :notes, :position
-
+    remove_column :notes, :position, :integer, null: false, default: 1
   end
 end

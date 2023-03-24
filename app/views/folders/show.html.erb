@@ -4,7 +4,7 @@
 
 <%= turbo_stream_from(@folder, :bookmarks) %>
 
-<%= turbo_frame_tag 'bookmarks', data: { controller: 'bookmarks', 'bookmarks-admin-value': current_user.admin? } do %>
+<%= turbo_frame_tag 'bookmarks', data: { controller: 'bookmarks', 'bookmarks-admin-value': Current.user.admin? } do %>
   <h4>Bookmarks</h4>
   <%= render @bookmarks %>
 <% end %>

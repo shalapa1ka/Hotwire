@@ -2,12 +2,10 @@
   <%= tag.section data: { 'bookmarks-target': 'bookmark' }, class: 'mb-4' do %>
     <%= link_to bookmark.title, folder_bookmark_path(bookmark.folder, bookmark), class: 'btn btn-warning btn-sm btn-block me-2 mb-3 ',
                 data: { turbo_frame: '_top' } %>
-    <% if current_user.admin? %>
       <div class="js-actions">
         <%= link_to :Edit, edit_folder_bookmark_path(bookmark.folder, bookmark), class: 'btn btn-primary' %>
         <%= link_to :Delete, folder_bookmark_path(bookmark.folder, bookmark), class: "btn btn-danger",
                     data: { turbo_method: :delete } %>
       </div>
-    <% end %>
   <% end %>
 <% end %>

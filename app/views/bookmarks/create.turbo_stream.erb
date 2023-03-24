@@ -1,2 +1,2 @@
-<%= turbo_stream.replace Bookmark.new, partial: 'add_bookmark' %>
+<%= turbo_stream.replace Bookmark.new, partial: 'bookmarks/add_bookmark', locals: {folder_id: @bookmark.folder.id} %>
 <%= prepend_flash %>
