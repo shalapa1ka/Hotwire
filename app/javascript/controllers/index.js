@@ -18,3 +18,6 @@ application.register("sortable", SortableController)
 
 import ToastController from "./toast_controller"
 application.register("toast", ToastController)
+
+import MessagesController from "./messages_controller"
+application.register("messages", MessagesController)

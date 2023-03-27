@@ -1,13 +1,14 @@
 module Messages
   class UpdateService < ::ApplicationService
-    def initialize(message)
+    def initialize(message, params)
       super
       @object = message
+      @params = params
     end
 
     def call
       tx_and_commit do
-        @object.touch
+        @object.update @params
       end
 
       super
@@ -16,7 +17,7 @@ module Messages
     private
 
     def post_call
-      broadcast_later "room_#{@params[:room_id]}",
+      broadcast_later "room_#{@object.room_id}",
                       'messages/updated',
                       locals: { message: @object }
     end
