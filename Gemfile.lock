@@ -242,7 +242,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   redis (~> 4.0)
   selenium-webdriver
-  sidekiq
+  sidekiq (~> 7)
   stimulus-rails
   turbo-rails
   tzinfo-data

@@ -27,5 +27,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :rooms, only: %i[index show]
+
+  resources :messages, only: %i[create update] do
+    resource :likes, only: %i[create destroy]
+  end
+
   root "home#index"
 end

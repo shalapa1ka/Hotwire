@@ -17,7 +17,7 @@ gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'acts_as_list'
-gem 'sidekiq'
+gem 'sidekiq', "~> 7"
 gem 'after_commit_everywhere'
 
 group :development, :test do

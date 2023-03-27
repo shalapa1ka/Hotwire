@@ -6,24 +6,27 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-5.times do
-  Image.create(
-    title: FFaker::Lorem.word,
-    url: FFaker::Image.url
-  )
-end
+# 5.times do
+#   Image.create(
+#     title: FFaker::Lorem.word,
+#     url: FFaker::Image.url
+#   )
+# end
+#
+# 5.times do
+#   Folder.create(
+#     title: FFaker::Lorem.word,
+#     description: FFaker::Lorem.sentence
+#   )
+# end
+#
+# 10.times do
+#   Bookmark.create(
+#     title: FFaker::Lorem.word,
+#     folder_id: rand(1..5)
+#   )
+# end
 
 5.times do
-  Folder.create(
-    title: FFaker::Lorem.word,
-    description: FFaker::Lorem.sentence
-  )
+  Room.create title: FFaker::Lorem.word
 end
-
-10.times do
-  Bookmark.create(
-    title: FFaker::Lorem.word,
-    folder_id: rand(1..5)
-  )
-end
-

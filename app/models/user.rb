@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
 
   has_many :notes, dependent: :destroy
+  has_many :room_members, dependent: :destroy
+  has_many :rooms, through: :room_members
+  has_many :messages, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liking_messages, through: :likes, source: :message
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, allow_nil: true, length: { minimum: 3 }
@@ -25,5 +30,9 @@ class User < ApplicationRecord
 
   def admin?
     true
+  end
+
+  def member_of?(room)
+    room.users.include?(self)
   end
 end
