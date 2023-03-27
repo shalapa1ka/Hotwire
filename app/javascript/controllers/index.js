@@ -21,3 +21,6 @@ application.register("toast", ToastController)
 
 import MessagesController from "./messages_controller"
 application.register("messages", MessagesController)
+
+import LikesController from "./likes_controller"
+application.register("likes", LikesController)

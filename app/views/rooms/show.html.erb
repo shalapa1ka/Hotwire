@@ -7,12 +7,17 @@
 
 <%= turbo_frame_tag 'messages',
                     data: { controller: 'messages', 'messages-user-value': Current.user.id } do %>
-  <%# render partial: 'messages/message_frame', collection: @room.messages, as: :message %>
+
   <% @room.messages.includes(:user).each do |msg| %>
     <article>
       <%= render msg %>
-      <hr>
     </article>
+
+    <%= tag.section data: { controller: 'likes', 'likes-messages-outlet': '#messages',
+                            'likes-liked-value': Current.user.liked?(msg) } do %>
+      <%= render 'messages/message_likes', message: msg %>
+    <% end %>
+    <hr>
   <% end %>
 <% end %>
 

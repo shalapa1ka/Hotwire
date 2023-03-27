@@ -35,4 +35,8 @@ class User < ApplicationRecord
   def member_of?(room)
     room.users.include?(self)
   end
+
+  def liked?(msg)
+    liking_messages.include?(msg)
+  end
 end
