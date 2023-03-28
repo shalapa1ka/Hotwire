@@ -1,13 +1,17 @@
-class Api::ImagesController < ApplicationController
-  def update
-    @image = Image.find(params[:id])
-    @image.update(image_params)
-    head :ok
-  end
+# frozen_string_literal: true
 
-  private
+module Api
+  class ImagesController < ApplicationController
+    def update
+      @image = Image.find(params[:id])
+      @image.update(image_params)
+      head :ok
+    end
 
-  def image_params
-    params.require(:image).permit(:title)
+    private
+
+    def image_params
+      params.require(:image).permit(:title)
+    end
   end
 end

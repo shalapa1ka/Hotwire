@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Bookmarks
   class CreateService < ::ApplicationService
     def initialize(folder, params)

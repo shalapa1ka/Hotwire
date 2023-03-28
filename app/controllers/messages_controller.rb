@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[edit update]
   def create
@@ -8,7 +10,7 @@ class MessagesController < ApplicationController
       render 'rooms/show'
     end
 
-    flash.now[:success] = "Message sent!"
+    flash.now[:success] = 'Message sent!'
   end
 
   def edit; end

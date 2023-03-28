@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class RoomChannel < ApplicationCable::Channel
-  extend Turbo::Streams::Broadcasts, Turbo::Streams::StreamName
+  extend Turbo::Streams::StreamName
+  extend Turbo::Streams::Broadcasts
   include Turbo::Streams::StreamName::ClassMethods
 
   def subscribed

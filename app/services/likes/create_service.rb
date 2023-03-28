@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Likes
   class CreateService < ::ApplicationService
     def initialize(user, message)
@@ -15,7 +17,7 @@ module Likes
 
     def post_call
       broadcast_later "room_#{@message.room_id}",
-                      "likes/updated",
+                      'likes/updated',
                       locals: { message: @message, initiator: @user.id }
     end
   end

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class BookmarksController < ApplicationController
-  before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
+  before_action :set_bookmark, only: %i[show edit update destroy]
   before_action :set_folder
-    def show; end
+  def show; end
 
   def new
     @bookmark = @folder.bookmarks.build
@@ -21,7 +23,7 @@ class BookmarksController < ApplicationController
 
   def update
     if @bookmark.update bookmark_params
-      flash.now[:success] = "Bookmark was successfully updated."
+      flash.now[:success] = 'Bookmark was successfully updated.'
     else
       render :edit
     end
@@ -29,20 +31,20 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark.destroy
-    flash.now[:success] = "Bookmark was successfully destroyed."
+    flash.now[:success] = 'Bookmark was successfully destroyed.'
   end
 
   private
 
-    def set_folder
-      @folder = Folder.find(params[:folder_id])
-    end
+  def set_folder
+    @folder = Folder.find(params[:folder_id])
+  end
 
-    def set_bookmark
-      @bookmark = Bookmark.find(params[:id])
-    end
+  def set_bookmark
+    @bookmark = Bookmark.find(params[:id])
+  end
 
-    def bookmark_params
-      params.require(:bookmark).permit(:title)
-    end
+  def bookmark_params
+    params.require(:bookmark).permit(:title)
+  end
 end

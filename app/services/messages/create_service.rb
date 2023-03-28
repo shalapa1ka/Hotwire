@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Messages
   class CreateService < ::ApplicationService
     def initialize(user, params)
